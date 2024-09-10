@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"ПР1"</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="header">
+      <div class="trademark">Neuib&#174;</div>
+      <hr class="line">
+        <h1>&#9654;Samples</h1>
+        <div class="date">12 Apr 23</div>
+    </div>
+    <div class="payment">Payment Form</div>
+        <div class="payment-form">
+          <div class="header-form">
+            <h2>Edit payment method</h2>
+            <div class="close-btn">&times;</div>
+          </div>
+          <form>
+            <label for="name">Name on card <span>?</span></label>
+            <input type="text" id="name" name="name" placeholder="John Doe">
+            <label for="card-number">Card number</label>
+            <div class="input-wrapper">
+              <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234">
+              <span class="card-icon">&#128179;</span>
+            </div>
+            <div class="row">
+              <div>
+                <label for="expiry">Expiration Date</label>
+                <input type="text" id="expiry" name="expiry" placeholder="MM / YY">
+              </div>
+              <div>
+                <label for="cvc">CVC</label>
+                <div class="input-wrapper">
+                  <input type="password" id="cvc" name="cvc" placeholder="_ _ _">
+                  <span class="cvc-icon1">👁️</span><span class="cvc-icon2">?</span>
+                </div>
+              </div>
+            </div>
+            <label for="country">Country / Region</label>
+            <select id="country" name="country">
+              <option value="canada">Canada</option>
+              <option value="england">England</option>
+              <option value="ukraine">Ukraine</option>
+            </select>
+            <label for="zip">ZIP</label>
+            <input type="text" id="zip" name="zip" placeholder="A1B 2C3">
+            <div class="buttons">
+              <div class="cancel-btn">Cancel</div>
+              <div class="update-btn">Update</div>
+            </div>
+          </form>
+        </div>
+        <div class="sing-up">Sing Up Form</div>
+        <div class="singup-form">
+        <div class="header-form">
+          <h2>Sign Up</h2>
+          <div class="close-btn">&times;</div>
+        </div>
+          <form>
+           <div class="input-email">
+            <label for="email">Email Adress<span class="required-field">*</span></label>
+            <input type="email" id="email" placeholder="bonjour@email.com" required>
+            <span class="valid-check">✔</span>
+           </div>
+           <div class="input-username">
+            <label for="username">Username<span class="required-field ">*</span></label>
+                <input type="text" id="username" placeholder="Username" required class="validating">
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                 Valliding...
+                </div>
+          </div>
+           <div class="buttons">
+            <div class="cancel-btn">Cancel</div>
+            <div class="update-btn">Update</div>
+          </div>
+          </form>
+      </div>
+      </div>
+        <div class="information">Information Form</div>
+        <div class="information-form">
+        <div class="header-form">
+          <h2>Tell us more about you</h2>
+          <div class="close-btn">&times;</div>
+        </div>
+        <form>
+            <label for="name">Complete Name <span class="required-field">*</span><span>?</span></label>
+            <input type="text" id="name" placeholder="Ex: John Doe" required>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dob">Date of birth <span class="required-field ">*</span></label>
+                    <input type="text" id="dob" placeholder="DD / MM / YYYY" required>
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+                  <select id="gender" required>
+                      <option value="Gender">Gender</option>
+                      <option value="Male">Male</option>
+                      <option value="female">Female</option>
+                  </select>
+                </div>
+            </div>
+            <div class="phone">
+            <label for="phone">Phone number <span class="required-field">*</span></label>
+            <div class="phone-input">
+                <span class="flag">🇨🇦</span>
+                <input type="text" id="phone" placeholder="+1 (___) ___-____" required>
+            </div>
+          </div>
+            <!-- Website -->
+            <label for="website">Website</label>
+            <div class="website-input">
+                <span>https://</span>
+                <input type="text" id="website" name="website" placeholder="www.yourwebsite.com" required>
+            </div>
+
+            <!-- Currency -->
+             <div class="currency-form">
+                <label for="currency">Currency <span class="tooltip" title="Select your preferred currency">?</span></label>
+                <div class="currency-options">
+                    <input type="radio" id="cad" name="currency" value="CAD" checked>
+                    <label for="cad" class="currency-label">CAD</label>
+        
+                    <input type="radio" id="usd" name="currency" value="USD">
+                    <label for="usd" class="currency-label">USD</label>
+                </div>
+          
+          </div>
+            <div class="language">
+            <label for="language">Language <span> ?</span></label>
+            <select id="language">
+                <option value="english">English</option>
+                <option value="french" selected>French</option>
+                <option value="spanish">Spanish</option>
+            </select>
+          </div>
+            <div class="buttons">
+              <div class="cancel-btn">Cancel</div>
+              <div class="update-btn">Update</div>
+            </div>
+        </form>
+      </div>
+</body>
+</html>

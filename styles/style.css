@@ -1,0 +1,21 @@
+body{
+    background-color: lavender;
+}
+.btn {
+	display: block;
+	width: 280px;
+	height: 58px;
+	border: 1px solid #fff;
+	border-radius: 18px;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	background: #734F96;
+    margin: auto;
+}
+.btn:hover {
+	background: rgba(192, 100, 235, 0.453);
+	
+}
