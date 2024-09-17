@@ -108,9 +108,46 @@ input, select {
 .input-wrapper .card-icon {
   position: absolute;
   right: 8px;
-  top: 18px;
-  transform: translateY(-50%);
-  font-size: 18px;
+  top: 10px; 
+}
+.input-wrapper .eye-icon {
+  position: absolute;
+  right: 25px;
+  top: 8px; 
+}
+.icon-image {
+  width: 20px; 
+  height: auto; 
+}
+.input-email {
+  position: relative;
+}
+.check-icon {
+  position: absolute;
+  top: 32px;
+  right: 8px;
+}
+.input-username {
+  position: relative;
+}
+.loading-icon {
+  position: absolute;
+  top: 35px;
+  right: 8px;
+}
+.valliding {
+  color: #646363;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 35px;
+}
+.input-date {
+  position: relative;
+}
+.date-icon {
+  position: absolute;
+  top: 35px;
+  right: 8px; 
 }
 .input-wrapper .cvc-icon1 {
   position: absolute;
@@ -140,30 +177,6 @@ input, select {
 }
 .row > div {
   width: 48%;
-}
-.buttons {
-  display: flex;
-  justify-content: space-between;
-}
-.cancel-btn, .update-btn {
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-}
-.cancel-btn {
-  width: 85px;
-  height: 40px;
-  background-color: white;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-.update-btn {
-  width: 327px;
-  height: 40px;
-  background-color: #000;
-  color: white;
-  text-align: center;
 }
 .sing-up{
   margin: 50px auto;
@@ -225,23 +238,6 @@ input, select {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   width: 400px;
 }
-.website-input {
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-  padding: 5px;
-}
-.website-input input {
-  border: none;
-  flex: 1;
-  padding: 10px;
-  font-size: 14px;
-  margin: 0 auto;
-}
-
-.website-input input:focus {
-  outline: none;
-}
 .sign-up-form {
   display: flex;
   flex-direction: column;
@@ -282,58 +278,104 @@ input:focus {
   border-color: #000;
   outline: none;
 }
-
 .form-row {
   display: flex;
   gap: 10px;
 }
-
 .form-group {
   flex: 1;
 }
-
+#phone {
+  border: none;
+  margin-top: 16px;
+}
 .phone-input {
   display: flex;
   align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 2px;
+  width: 100%;
+  height: 40px;
 }
-
+#flag{
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  padding-right: 10px;
+  margin-top: 16px;
+  margin-right: 5px;
+  outline: none;
+  cursor: pointer;
+}
 .phone-input .flag {
   font-size: 1.2rem;
   margin-right: 10px;
 }
-
 .currency-switcher {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
-
 .currency-switcher label {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
-
 .currency-switcher input {
   margin-right: 5px;
 }
-
 .form-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.cancel-btn, .submit-btn {
-  padding: 10px 20px;
+.exit-btn {
+  position: relative;
+  top: -15px;
+  left: 0px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background-color: #ccc;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 25px; 
+  color: #555;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.cancel-btn, .update-btn {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
 }
 .cancel-btn {
-  background-color: #f0f0f0;
-  border-radius: 1px solid #333;
+  width: 85px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+.update-btn {
+  width: 327px;
+  height: 40px;
+  background-color: #000;
+  color: white;
+}
+.update-btn:hover{
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #555;
 }
 .currency-options {
   display: flex;
@@ -342,11 +384,12 @@ input:focus {
   overflow: hidden;
   background-color: #f5f5f5;
 }
-
+.currency-form {
+  padding-top: 25px;
+}
 .currency-options input[type="radio"] {
   display: none;
 }
-
 .currency-label {
   flex: 1;
   text-align: center;
@@ -358,21 +401,29 @@ input:focus {
   transition: background-color 0.3s, color 0.3s;
   margin: 3px
 }
-
 .currency-options input[type="radio"]:checked + .currency-label {
   background-color: #fff;
   color: black;
   font-weight: bold;
 }
-
 .currency-label:hover {
   background-color: #ddd;
 }
-
-.tooltip {
-  font-size: 14px;
-  cursor: help;
-}
 .language {
-  margin-top: 15px;
+  padding-top: 20px;
+}
+.prefix {
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 5px;
+}
+.website-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#website {
+  border: none;
+  margin: 4px 0 5px -5px;
 }
