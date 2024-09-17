@@ -17,7 +17,7 @@
         <div class="payment-form">
           <div class="header-form">
             <h2>Edit payment method</h2>
-            <div class="close-btn">&times;</div>
+            <div class="exit-btn">&times;</div>
           </div>
           <form>
             <label for="name">Name on card <span>?</span></label>
@@ -25,8 +25,10 @@
             <label for="card-number">Card number</label>
             <div class="input-wrapper">
               <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234">
-              <span class="card-icon">&#128179;</span>
-            </div>
+              <span class="card-icon">
+                  <img src="card.png" alt="card" class="icon-image">
+              </span>
+          </div>          
             <div class="row">
               <div>
                 <label for="expiry">Expiration Date</label>
@@ -36,7 +38,7 @@
                 <label for="cvc">CVC</label>
                 <div class="input-wrapper">
                   <input type="password" id="cvc" name="cvc" placeholder="_ _ _">
-                  <span class="cvc-icon1">👁️</span><span class="cvc-icon2">?</span>
+                  <span class="eye-icon"><img src="eye.png" alt="card" class="icon-image"></span><span class="cvc-icon2">?</span>
                 </div>
               </div>
             </div>
@@ -58,24 +60,27 @@
         <div class="singup-form">
         <div class="header-form">
           <h2>Sign Up</h2>
-          <div class="close-btn">&times;</div>
+          <div class="exit-btn">&times;</div>
         </div>
           <form>
            <div class="input-email">
             <label for="email">Email Adress<span class="required-field">*</span></label>
             <input type="email" id="email" placeholder="bonjour@email.com" required>
-            <span class="valid-check">✔</span>
+            <span class="check-icon">
+              <img src="check.png" alt="valid-check" class="icon-image">
+          </span>
            </div>
            <div class="input-username">
             <label for="username">Username<span class="required-field ">*</span></label>
                 <input type="text" id="username" placeholder="Username" required class="validating">
-                <div id="validationServer03Feedback" class="invalid-feedback">
-                 Valliding...
-                </div>
+                <span class="loading-icon">
+                  <img src="loading.png" alt="loading-icon" class="icon-image">
+              </span>
+                <div class="valliding">Valliding...</div>
           </div>
            <div class="buttons">
             <div class="cancel-btn">Cancel</div>
-            <div class="update-btn">Update</div>
+            <div class="update-btn">Sign Up</div>
           </div>
           </form>
       </div>
@@ -84,15 +89,18 @@
         <div class="information-form">
         <div class="header-form">
           <h2>Tell us more about you</h2>
-          <div class="close-btn">&times;</div>
+          <div class="exit-btn">&times;</div>
         </div>
         <form>
             <label for="name">Complete Name <span class="required-field">*</span><span>?</span></label>
             <input type="text" id="name" placeholder="Ex: John Doe" required>
             <div class="form-row">
-                <div class="form-group">
-                    <label for="dob">Date of birth <span class="required-field ">*</span></label>
+                <div class="input-date">
+                    <label for="date">Date of birth <span class="required-field">*</span></label>
                     <input type="text" id="dob" placeholder="DD / MM / YYYY" required>
+                    <span class="date-icon">
+                      <img src="date.png" alt="date-icon" class="icon-image">
+                  </span>
                 </div>
                 <div class="form-group">
                   <label for="gender">Gender</label>
@@ -106,40 +114,39 @@
             <div class="phone">
             <label for="phone">Phone number <span class="required-field">*</span></label>
             <div class="phone-input">
-                <span class="flag">🇨🇦</span>
+              <select id="flag" name="flag">
+                <option value="canada">🇨🇦</option>
+                <option value="usa">🇺🇸</option>
+                <option value="uk">🇬🇧</option>
+              </select>
                 <input type="text" id="phone" placeholder="+1 (___) ___-____" required>
             </div>
           </div>
-            <!-- Website -->
             <label for="website">Website</label>
             <div class="website-input">
-                <span>https://</span>
-                <input type="text" id="website" name="website" placeholder="www.yourwebsite.com" required>
-            </div>
-
-            <!-- Currency -->
+              <span class="prefix">https://</span>
+              <input id="website" type="text" name="website" placeholder="www.yourwebsite.com" required>           
+             </div>
              <div class="currency-form">
-                <label for="currency">Currency <span class="tooltip" title="Select your preferred currency">?</span></label>
+                <label for="currency">Currency <span>?</span></label>
                 <div class="currency-options">
                     <input type="radio" id="cad" name="currency" value="CAD" checked>
                     <label for="cad" class="currency-label">CAD</label>
-        
                     <input type="radio" id="usd" name="currency" value="USD">
                     <label for="usd" class="currency-label">USD</label>
                 </div>
-          
           </div>
             <div class="language">
             <label for="language">Language <span> ?</span></label>
             <select id="language">
+                <option value="french">French</option>
                 <option value="english">English</option>
-                <option value="french" selected>French</option>
                 <option value="spanish">Spanish</option>
             </select>
           </div>
             <div class="buttons">
               <div class="cancel-btn">Cancel</div>
-              <div class="update-btn">Update</div>
+              <div class="update-btn">Sign Up</div>
             </div>
         </form>
       </div>
