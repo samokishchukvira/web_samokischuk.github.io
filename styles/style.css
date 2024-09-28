@@ -1,21 +1,35 @@
 body{
-    background-color: lavender;
+    background-color: rgb(2, 2, 144);
 }
-.btn {
+.btn_lr {
 	display: block;
 	width: 280px;
 	height: 58px;
-	border: 1px solid #fff;
 	border-radius: 18px;
 	text-align: center;
 	line-height: 50px;
 	text-decoration: none;
 	color: #fff;
 	font-size: 20px;
-	background: #734F96;
+	background: rgb(166, 45, 237);
+    margin: 10px auto;
+}
+.btn_lr:hover {
+	background: rgb(206, 140, 238);
+}
+.btn_pr {
+	display: block;
+	width: 280px;
+	height: 58px;
+	border-radius: 18px;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	background: rgb(239, 95, 119);
     margin: auto;
 }
-.btn:hover {
-	background: rgba(192, 100, 235, 0.453);
-	
+.btn_pr:hover {
+	background: pink;
 }
