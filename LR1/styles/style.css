@@ -1,0 +1,39 @@
+body{
+    background-color: rgb(2, 2, 144);
+}
+.btn1 {
+	display: block;
+	width: 280px;
+	height: 58px;
+	border-radius: 18px;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	background: rgb(166, 45, 237);
+    margin: 10px auto;
+}
+.btn1:hover {
+	background: rgb(206, 140, 238);
+}
+.btn2 {
+	display: block;
+	width: 280px;
+	height: 58px;
+	border-radius: 18px;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	background: rgb(239, 95, 119);
+    margin: auto;
+}
+.btn2:hover {
+	background: pink;
+}
+div {
+    display: flex;
+    align-items: center;    
+}
