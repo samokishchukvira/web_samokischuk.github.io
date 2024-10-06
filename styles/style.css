@@ -28,7 +28,7 @@ body{
 	color: #fff;
 	font-size: 20px;
 	background: rgb(239, 95, 119);
-    margin: auto;
+    margin: 10px auto;
 }
 .btn_pr:hover {
 	background: pink;
