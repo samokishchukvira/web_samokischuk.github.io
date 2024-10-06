@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ПР2</title>
+</head>
+<body>
+    <script>
+
+        let products = [
+            { productId: 1, name: 'ноутбук', price: 30000 },
+            { productId: 2, name: 'мишка', price: 700 },
+            { productId: 3, name: 'клавіатура', price: 3000 },
+            { productId: 4, name: 'монітор', price: 20000 },
+            { productId: 5, name: 'телефон', price: 36000 }
+        ];
+
+        let purchases = [
+            { purchaseId: 1, productId: 1, quantity: 2 },
+            { purchaseId: 2, productId: 2, quantity: 5 },
+            { purchaseId: 3, productId: 3, quantity: 3 },
+            { purchaseId: 4, productId: 4, quantity: 1 },
+            { purchaseId: 5, productId: 5, quantity: 4 }
+        ];
+
+        function getTotalSales(products, purchases) {
+            return purchases.reduce((sales, purchase) => {
+                let product = products.find(p => p.productId === purchase.productId);
+                
+                if (product) {
+                    if (!sales[product.name]) {
+                        sales[product.name] = 0;
+                    }
+                    sales[product.name] += product.price * purchase.quantity;
+                }
+                
+                return sales;
+            }, {});
+        }
+
+        let totalSales = getTotalSales(products, purchases);
+        console.log(totalSales);
+
+
+    </script>
+</body>
+</html>

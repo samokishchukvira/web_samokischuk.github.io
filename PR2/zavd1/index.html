@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ПР2</title>
+</head>
+<body>
+    <script>
+
+        let orders = [
+            {
+                orderId: 1,
+                customer: { name: 'Петренко Марія', email: 'petrenko@gmail.com' },
+                items: [
+                    { product: 'ноутбук', price: 30000 },
+                    { product: 'мишка', price: 700 }
+                ],
+                total: 30700
+            },
+            {
+                orderId: 2,
+                customer: { name: 'Олександрук Іван', email: 'olexandruk@gmail.com' },
+                items: [
+                    { product: 'клавіатура', price: 3000 },
+                    { product: 'монітор', price: 20000 }
+                ],
+                total: 23000
+            },
+            {
+                orderId: 3,
+                customer: { name: 'Мисик Микола', email: 'mysyk@gmail.com' },
+                items: [
+                    { product: 'телефон', price: 36000 },
+                    { product: 'навушники', price: 2800 }
+                ],
+                total: 38800
+            }
+        ];
+
+        function getTotalSpentByCustomer(orders, customerName) {
+            return orders
+            .filter(order => order.customer.name === customerName) // Фільтруємо замовлення для клієнта
+            .reduce((total, order) => total + order.total, 0); // Підраховуємо загальну суму
+        }
+
+            let totalSpentByMaria = getTotalSpentByCustomer(orders, 'Петренко Марія');
+            console.log('Загальна сума витрат Петренко Марії:', totalSpentByMaria);
+
+            let totalSpentByIvan = getTotalSpentByCustomer(orders, 'Олександрук Іван');
+            console.log('Загальна сума витрат Олександрука Івана:', totalSpentByIvan);
+
+            let totalSpentByMykola = getTotalSpentByCustomer(orders, 'Мисик Микола');
+            console.log('Загальна сума витрат Мисика Миколи:', totalSpentByMykola);
+
+    </script>
+</body>
+</html>
