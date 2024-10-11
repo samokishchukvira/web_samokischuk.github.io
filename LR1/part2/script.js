@@ -103,8 +103,8 @@ function task9() {
 function task10() {
     var studentCount = prompt("Введіть кількість студентів у групі:");
 
-    if (studentCount === null || studentCount.trim() === "" || parseInt(studentCount) <= 0) {
-        alert("Введіть коректну кількість студентів");
+    if (studentCount === null || studentCount.trim() === "" || isNaN(studentCount) || parseInt(studentCount) <= 0) {
+        alert("Введіть коректну кількість студентів (позитивне число).");
         return;
     }
 
