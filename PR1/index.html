@@ -17,138 +17,197 @@
         <div class="payment-form">
           <div class="header-form">
             <h2>Edit payment method</h2>
-            <div class="exit-btn">&times;</div>
-          </div>
-          <form>
-            <label for="name">Name on card <span>?</span></label>
+            <div class="exit-btn" onclick="toggleForm('payment-form', 'payment')">&times;</div>
+        </div>
+          <form id="myForm">
+            <label for="name">Name on card <span title="Введіть ім'я на картці" style="cursor: help;">?</span></label>
             <input type="text" id="name" name="name" placeholder="John Doe">
+    
             <label for="card-number">Card number</label>
             <div class="input-wrapper">
-              <input type="text" id="card-number" name="card-number" placeholder="1234 1234 1234 1234">
+              <input type="number" id="card-number" name="card-number" placeholder="1234 1234 1234 1234" maxlength="16" oninput="changeCardIcon()">
               <span class="card-icon">
-                  <img src="card.png" alt="card" class="icon-image">
+                  <img src="card.png" alt="card" class="icon-image" id="card-icon">
               </span>
-          </div>          
+          </div>                   
+    
             <div class="row">
-              <div>
-                <label for="expiry">Expiration Date</label>
-                <input type="text" id="expiry" name="expiry" placeholder="MM / YY">
-              </div>
-              <div>
-                <label for="cvc">CVC</label>
-                <div class="input-wrapper">
-                  <input type="password" id="cvc" name="cvc" placeholder="_ _ _">
-                  <span class="eye-icon"><img src="eye.png" alt="card" class="icon-image"></span><span class="cvc-icon2">?</span>
+                <div>
+                    <label for="expiry">Expiration Date</label>
+                    <input type="month" id="expiry" name="expiry" placeholder="MM / YY" maxlength="7">
                 </div>
+                <div>
+                  <label for="cvc">CVC</label>
+                  <div class="input-wrapper">
+                      <input type="password" id="cvc" name="cvc" placeholder="_ _ _" maxlength="3">
+                      <span class="eye-icon" id="toggleCVC">
+                          <img src="eye.png" alt="CVC" class="icon-image">
+                      </span>
+                      <span class="cvc-icon2" title="Введіть CVC код" style="cursor: help;">?</span>
+                  </div>
               </div>
             </div>
+    
             <label for="country">Country / Region</label>
             <select id="country" name="country">
-              <option value="canada">Canada</option>
-              <option value="england">England</option>
-              <option value="ukraine">Ukraine</option>
+                <option value="canada">Canada</option>
+                <option value="england">England</option>
+                <option value="ukraine">Ukraine</option>
             </select>
+    
             <label for="zip">ZIP</label>
-            <input type="text" id="zip" name="zip" placeholder="A1B 2C3">
+            <input type="text" id="zip" name="zip" placeholder="A1B 2C3" maxlength="7">
+    
             <div class="buttons">
-              <div class="cancel-btn">Cancel</div>
-              <div class="update-btn">Update</div>
+                <button type="button" class="cancel-btn" onclick="clearForm1()">Cancel</button>
+                <button type="submit" class="update-btn">Update</button>
             </div>
-          </form>
+        </form>
         </div>
         <div class="sing-up">Sing Up Form</div>
         <div class="singup-form">
         <div class="header-form">
           <h2>Sign Up</h2>
-          <div class="exit-btn">&times;</div>
+          <div class="exit-btn" onclick="toggleForm('singup-form', 'sing-up')">&times;</div>
         </div>
-          <form>
-           <div class="input-email">
-            <label for="email">Email Adress<span class="required-field">*</span></label>
-            <input type="email" id="email" placeholder="bonjour@email.com" required>
-            <span class="check-icon">
-              <img src="check.png" alt="valid-check" class="icon-image">
-          </span>
-           </div>
-           <div class="input-username">
-            <label for="username">Username<span class="required-field ">*</span></label>
-                <input type="text" id="username" placeholder="Username" required class="validating">
-                <span class="loading-icon">
+        <form id="signupForm">
+          <div class="input-email">
+              <label for="email">Email Address <span class="required-field">*</span></label>
+              <input type="email" id="email" placeholder="bonjour@email.com" required>
+              <span class="check-icon">
+                  <img src="check.png" alt="valid-check" class="icon-image">
+              </span>
+          </div>
+          
+          <div class="input-username">
+              <label for="username">Username <span class="required-field">*</span></label>
+              <input type="text" id="username" placeholder="Username" required class="validating">
+              <span class="loading-icon">
                   <img src="loading.png" alt="loading-icon" class="icon-image">
               </span>
-                <div class="valliding">Valliding...</div>
+              <div class="valliding">Validating...</div>
           </div>
-           <div class="buttons">
-            <div class="cancel-btn">Cancel</div>
-            <div class="update-btn">Sign Up</div>
+          
+          <div class="buttons">
+              <button type="button" class="cancel-btn" onclick="clearForm2()">Cancel</button>
+              <button type="submit" class="update-btn">Sign Up</button>
           </div>
-          </form>
+      </form>
       </div>
       </div>
         <div class="information">Information Form</div>
         <div class="information-form">
         <div class="header-form">
           <h2>Tell us more about you</h2>
-          <div class="exit-btn">&times;</div>
-        </div>
-        <form>
-            <label for="name">Complete Name <span class="required-field">*</span><span>?</span></label>
-            <input type="text" id="name" placeholder="Ex: John Doe" required>
-            <div class="form-row">
-                <div class="input-date">
-                    <label for="date">Date of birth <span class="required-field">*</span></label>
-                    <input type="text" id="dob" placeholder="DD / MM / YYYY" required>
-                    <span class="date-icon">
+          <div class="exit-btn" onclick="toggleForm('information-form', 'information')">&times;</div>
+                </div>
+        <form id="registrationForm">
+          <label for="name">Complete Name <span class="required-field">*</span><span title="Введіть Ваше повне ім'я" style="cursor: help;">?</span></label>
+          <input type="text" id="name" placeholder="Ex: John Doe" required>
+  
+          <div class="form-row">
+              <div class="input-date">
+                  <label for="dob">Date of birth <span class="required-field">*</span></label>
+                  <input type="text" id="dob" placeholder="DD / MM / YYYY" required pattern="\d{2} / \d{2} / \d{4}">
+                  <span class="date-icon">
                       <img src="date.png" alt="date-icon" class="icon-image">
                   </span>
-                </div>
-                <div class="form-group">
+              </div>
+              <div class="form-group">
                   <label for="gender">Gender</label>
                   <select id="gender" required>
-                      <option value="Gender">Gender</option>
+                      <option value="" disabled selected hidden>Gender</option>
                       <option value="Male">Male</option>
                       <option value="female">Female</option>
                   </select>
-                </div>
-            </div>
-            <div class="phone">
-            <label for="phone">Phone number <span class="required-field">*</span></label>
-            <div class="phone-input">
-              <select id="flag" name="flag">
-                <option value="canada">🇨🇦</option>
-                <option value="usa">🇺🇸</option>
-                <option value="uk">🇬🇧</option>
-              </select>
-                <input type="text" id="phone" placeholder="+1 (___) ___-____" required>
-            </div>
+              </div>
           </div>
-            <label for="website">Website</label>
-            <div class="website-input">
+  
+          <div class="phone">
+              <label for="phone">Phone number <span class="required-field">*</span></label>
+              <div class="phone-input">
+                  <select id="flag" name="flag">
+                      <option value="canada">🇨🇦</option>
+                      <option value="usa">🇺🇸</option>
+                      <option value="uk">🇬🇧</option>
+                  </select>
+                  <input type="tel" id="phone" placeholder="+1 (___) ___-____" required>
+              </div>
+          </div>
+  
+          <label for="website">Website</label>
+          <div class="website-input">
               <span class="prefix">https://</span>
-              <input id="website" type="text" name="website" placeholder="www.yourwebsite.com" required>           
-             </div>
-             <div class="currency-form">
-                <label for="currency">Currency <span>?</span></label>
-                <div class="currency-options">
-                    <input type="radio" id="cad" name="currency" value="CAD" checked>
-                    <label for="cad" class="currency-label">CAD</label>
-                    <input type="radio" id="usd" name="currency" value="USD">
-                    <label for="usd" class="currency-label">USD</label>
-                </div>
+              <input id="website" type="text" name="website" placeholder="www.yourwebsite.com" required>
           </div>
-            <div class="language">
-            <label for="language">Language <span> ?</span></label>
-            <select id="language">
-                <option value="french">French</option>
-                <option value="english">English</option>
-                <option value="spanish">Spanish</option>
-            </select>
+  
+          <div class="currency-form">
+              <label for="currency">Currency <span title="Оберіть валюту" style="cursor: help;">?</span></label>
+              <div class="currency-options">
+                  <input type="radio" id="cad" name="currency" value="CAD" checked>
+                  <label for="cad" class="currency-label">CAD</label>
+                  <input type="radio" id="usd" name="currency" value="USD">
+                  <label for="usd" class="currency-label">USD</label>
+              </div>
           </div>
-            <div class="buttons">
-              <div class="cancel-btn">Cancel</div>
-              <div class="update-btn">Sign Up</div>
-            </div>
-        </form>
+  
+          <div class="language">
+              <label for="language">Language <span title="Оберіть мову" style="cursor: help;">?</span></label>
+              <select id="language">
+                  <option value="french">French</option>
+                  <option value="english">English</option>
+                  <option value="spanish">Spanish</option>
+              </select>
+          </div>
+  
+          <div class="buttons">
+              <button type="button" class="cancel-btn" onclick="clearForm3()">Cancel</button>
+              <button type="submit" class="update-btn">Sign Up</button>
+          </div>
+      </form>
       </div>
+      <script>
+        function clearForm1() {
+            document.getElementById("myForm").reset();
+        }
+        function clearForm2() {
+            document.getElementById("signupForm").reset();
+        }
+        function clearForm3() {
+            document.getElementById("registrationForm").reset();
+        }
+        function toggleForm(formClass, titleClass) {
+            const form = document.querySelector(`.${formClass}`);
+            const title = document.querySelector(`.${titleClass}`);
+            if (form) {
+                form.classList.toggle('hidden'); 
+            }
+            if (title) {
+                title.classList.toggle('hidden');
+            }
+        }
+        function changeCardIcon() {
+            const cardInput = document.getElementById("card-number");
+            const cardIcon = document.getElementById("card-icon");
+            
+            if (cardInput.value.length > 0) {
+                cardIcon.src = "card2.png"; 
+            } else {
+                cardIcon.src = "card.png"; 
+            }
+        }
+        document.getElementById("toggleCVC").addEventListener("click", function() {
+            const cvcInput = document.getElementById("cvc");
+            const eyeIcon = this.querySelector("img");
+            
+            if (cvcInput.type === "password") {
+                cvcInput.type = "text"; 
+                eyeIcon.src = "eye_back.JPG"; 
+            } else {
+                cvcInput.type = "password"; 
+                eyeIcon.src = "eye.png"; 
+            }
+        });
+    </script>
 </body>
 </html>
