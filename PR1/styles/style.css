@@ -25,6 +25,9 @@ body {
 color: #ABABAB;
 font-size: 14px;
 }
+.hidden {
+  display: none; 
+}
 .header .date {
 font-size: 14px;
 margin-top: 10px;
@@ -230,6 +233,15 @@ input, select {
 .phone,
 .currency {
   margin-top: 25px;
+  margin-bottom: 15px;
+}
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 .form-container {
   background-color: #fff;
@@ -265,9 +277,16 @@ label {
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
-
 input[type="text"], select {
   width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.phone select {
+  width: 15%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
@@ -376,6 +395,11 @@ input:focus {
   background-color: #ccc;
   color: #333;
   border: 1px solid #555;
+}
+.cancel-btn:hover{
+  background-color: #333;
+  color: #ccc;
+  border: 1px solid #ccc;
 }
 .currency-options {
   display: flex;
