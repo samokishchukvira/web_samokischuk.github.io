@@ -451,3 +451,69 @@ input:focus {
   border: none;
   margin: 4px 0 5px -5px;
 }
+
+@media (max-width: 600px) {
+  .header {
+    padding: 15px;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .payment-form, .singup-form, .information-form {
+    padding: 15px;
+  }
+
+  .header-form h2 {
+    font-size: 16px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .cancel-btn, .update-btn {
+    width: 100%;
+    margin-bottom: 10px; 
+  }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header .date {
+    font-size: 10px;
+  }
+
+  .payment {
+    font-size: 18px;
+  }
+
+  .payment-form, .singup-form, .information-form {
+    padding: 10px;
+  }
+
+  .header-form h2 {
+    font-size: 14px;
+  }
+
+  input, select {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .cancel-btn, .update-btn {
+    font-size: 12px;
+  }
+
+  .exit-btn {
+    font-size: 1.2rem;
+  }
+}
