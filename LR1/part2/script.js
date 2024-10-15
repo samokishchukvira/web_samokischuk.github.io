@@ -35,33 +35,42 @@ function task5() {
 }
 
 function task6() {
-    var num1 = Number(prompt('Введіть перше число'));
-    var num2 = Number(prompt('Введіть друге число'));
-    var sum = num1 + num2;
+    var num1 = prompt('Введіть перше число');
+    var num2 = prompt('Введіть друге число');
 
-    if (num1 == '' || num2 == '') {
+    if (num1 === '' || num2 === '') {
         alert("Ви нічого не ввели!");
-    } 
-    else {
+    } else if (isNaN(num1) || isNaN(num2)) {
+        alert("Будь ласка, введіть тільки числа!");
+    } else {
+        var sum = Number(num1) + Number(num2);
         alert("Сума двох чисел = " + sum);
     }
 }
 
 function task7() {
-    var num1 = Number(prompt('Введіть перше число'));
-    var num2 = Number(prompt('Введіть друге число'));
+    var num1 = prompt('Введіть перше число');
+    var num2 = prompt('Введіть друге число');
 
-    if (num1 == '' || num2 == '') {
+    if (num1 === '' || num2 === '') {
         alert("Ви нічого не ввели!");
     } 
-    else if (num1 > num2) {
-        document.write("Найбільше число: " + num1);
-    } 
-    else if (num2 > num1) {
-        document.write("Найбільше число: " + num2);
+    else if (isNaN(num1) || isNaN(num2)) {
+        alert("Будь ласка, введіть тільки числа!");
     } 
     else {
-        document.write("Числа рівні");
+        num1 = Number(num1);
+        num2 = Number(num2);
+
+        if (num1 > num2) {
+            document.write("Найбільше число: " + num1);
+        } 
+        else if (num2 > num1) {
+            document.write("Найбільше число: " + num2);
+        } 
+        else {
+            document.write("Числа рівні");
+        }
     }
 }
 
@@ -104,7 +113,7 @@ function task10() {
     var studentCount = prompt("Введіть кількість студентів у групі:");
 
     if (studentCount === null || studentCount.trim() === "" || isNaN(studentCount) || parseInt(studentCount) <= 0) {
-        alert("Введіть коректну кількість студентів (позитивне число).");
+        alert("Введіть додатнє число.");
         return;
     }
 
@@ -123,6 +132,7 @@ function task10() {
     document.write(studentList);
 }
 
+
 function task11() {
     var nameList = "";
 
@@ -130,6 +140,10 @@ function task11() {
         var name = prompt("Введіть прізвище та ім'я (або натисніть Скасувати, щоб зупинити):");
         if (name === null) {
             break;
+        }
+        if (name.trim() === '') {
+            alert("Поле не може бути порожнім. Будь ласка, введіть прізвище та ім'я.");
+            continue; 
         }
         nameList += name + "<br>";
     }
