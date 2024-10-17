@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ЛР4</title>
+    <style>
+        body{
+            background-color: lavender;
+        }
+         #image-scrolling {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; 
+        }
+        #image-scrolling img {
+            width: 600px; 
+            height: 400px; 
+        }
+        #image-scrolling .controls, 
+        #image-scrolling .description,
+        #image-scrolling h3,
+        #image-scrolling p {
+            text-align: center;
+        }
+        #image-scrolling .controls {
+            display: flex;
+            justify-content: space-between;
+            width: 200px; 
+            margin-top: 10px;
+        }
+        #image-scrolling a {
+            text-decoration: none;
+            color: rgb(103, 6, 121);
+            font-weight: bold;
+        }
+        #image-scrolling p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-scrolling"></div>
+
+    <script>
+        let imagesArray = [
+            { path: 'images/photo1.jpg', title: 'фіолетий тон', description: 'Меблі для вітальні' },
+            { path: 'images/photo2.jpeg', title: 'фіолетий тон', description: 'Меблі для спальні' },
+            { path: 'images/photo3.jpg', title: 'фіолетий тон', description: 'Меблі для кухні' }
+        ];
+
+        function initPhotoRotator(divId, images) {
+            const container = document.getElementById(divId);
+            let currentIndex = 0;
+
+            const imgElement = document.createElement('img');
+            const titleElement = document.createElement('h3');
+            const descriptionElement = document.createElement('p');
+            const controls = document.createElement('div');
+            controls.classList.add('controls');
+
+            const prevLink = document.createElement('a');
+            prevLink.href = '#';
+            prevLink.textContent = 'Назад';
+            prevLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updatePhoto();
+                }
+            });
+
+            const nextLink = document.createElement('a');
+            nextLink.href = '#';
+            nextLink.textContent = 'Вперед';
+            nextLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    updatePhoto();
+                }
+            });
+
+            const counterElement = document.createElement('p');
+            counterElement.style.textAlign = 'center';
+
+            controls.appendChild(prevLink);
+            controls.appendChild(nextLink);
+            container.appendChild(counterElement);
+            container.appendChild(imgElement);
+            container.appendChild(titleElement);
+            container.appendChild(descriptionElement);
+            container.appendChild(controls);
+
+            function updatePhoto() {
+                const image = images[currentIndex];
+                imgElement.src = image.path;
+                titleElement.textContent = image.title;
+                descriptionElement.textContent = image.description;
+                counterElement.textContent = `Фотографія ${currentIndex + 1} з ${images.length}`;
+
+                prevLink.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+                nextLink.style.visibility = currentIndex === images.length - 1 ? 'hidden' : 'visible';
+            }
+
+            updatePhoto();
+        }
+
+        window.onload = function() {
+            initPhotoRotator('image-scrolling', imagesArray); 
+        };
+
+    </script>
+</body>
+</html>

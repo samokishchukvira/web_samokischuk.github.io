@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЛР4</title>
+    <style>
+        .captcha-digit {
+            font-size: 40px;
+            font-weight: bold;
+            color: red;
+            display: inline-block;
+            line-height: 1;
+        }
+        .captcha-container {
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 5px;
+        }
+        .message {
+            color: red;
+            font-weight: bold;
+        }
+        input {
+            font-size: 20px;
+        }
+        #user-input {
+            margin-bottom: 20px;
+
+        }
+    </style>
+</head>
+<body>
+    <h3>Введіть число</h3>
+    <div class="captcha-container" id="captcha"></div>
+    <input type="text" id="user-input" placeholder="Введіть число"><br>
+    <button onclick="checkCaptcha()">Перевірити</button>
+    <div id="message" class="message"></div>
+    
+    <script src="../scripts.js"></script>
+</body>
+</html>

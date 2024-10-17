@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ЛР4</title>
+    <style>
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Загальний рахунок: <span id="score">0</span>% (<span id="correct">0</span> правильних відповідей з <span id="total">0</span>)</h2>
+    <button onclick="generateTask()">наступне завдання</button>
+    
+    <div>
+        <p><span id="num1"></span> × <span id="num2"></span> =</p>
+        <form id="answerForm">
+            <label><input type="radio" name="answer" value="option1"> <span id="option1"></span></label>
+            <label><input type="radio" name="answer" value="option2"> <span id="option2"></span></label>
+            <label><input type="radio" name="answer" value="option3"> <span id="option3"></span></label>
+            <label><input type="radio" name="answer" value="option4"> <span id="option4"></span></label>
+        </form>
+        <div id="feedback" class="feedback"></div>
+    </div>
+    
+    <script>
+         let score = 0;
+        let correctAnswers = 0;
+        let totalAnswers = 0;
+        let correctAnswer;
+
+        function generateTask() {
+            let num1 = Math.floor(Math.random() * 10) + 1;
+            let num2 = Math.floor(Math.random() * 10) + 1;
+            correctAnswer = num1 * num2;
+
+            document.getElementById('num1').textContent = num1;
+            document.getElementById('num2').textContent = num2;
+            document.getElementById('feedback').textContent = '';
+
+            let correctOption = Math.floor(Math.random() * 4) + 1;  
+            let options = [];
+            
+            for (let i = 1; i <= 4; i++) {
+                if (i === correctOption) {
+                    options.push(correctAnswer);
+                } else {
+                    let randomAnswer;
+                    do {
+                        randomAnswer = Math.floor(Math.random() * 100) + 1; 
+                    } while (randomAnswer === correctAnswer || options.includes(randomAnswer));
+                    options.push(randomAnswer);
+                }
+                document.getElementById('option' + i).textContent = options[i-1];
+            }
+
+            const radios = document.getElementsByName('answer');
+            radios.forEach(radio => radio.checked = false);
+        }
+
+        document.getElementById('answerForm').addEventListener('change', function() {
+            checkAnswer();
+        });
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            if (selectedOption) {
+                const userAnswer = parseInt(document.getElementById(selectedOption.value).textContent);
+
+                totalAnswers++;
+                
+                if (userAnswer === correctAnswer) {
+                    correctAnswers++;
+                    document.getElementById('feedback').textContent = 'Правильно!';
+                } else {
+                    document.getElementById('feedback').textContent = `Помилка, правильна відповідь «${correctAnswer}»`;
+                }
+
+                score = Math.round((correctAnswers / totalAnswers) * 100);
+                document.getElementById('score').textContent = score;
+                document.getElementById('correct').textContent = correctAnswers;
+                document.getElementById('total').textContent = totalAnswers;
+            }
+        }
+
+        window.onload = generateTask;
+        
+    </script>
+</body>
+</html>

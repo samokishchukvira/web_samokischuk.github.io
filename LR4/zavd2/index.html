@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ЛР4</title>
+    <style>
+        body {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        #next-btn {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Загальний рахунок: <span id="score">0</span>% (<span id="correct">0</span> правильних відповідей з <span id="total">0</span>)</h2>
+    <button id="next-btn" onclick="generateTask()">наступне завдання</button>
+    
+    <div id="task">
+        <span id="num1">3</span> × <span id="num2">4</span> = 
+        <input type="text" id="answer" placeholder="введіть відповідь">
+        <button onclick="checkAnswer()">перевірити</button>
+    </div>
+    <div id="feedback" class="result"></div>
+
+    <script src="../scripts.js"></script>
+</body>
+</html>
