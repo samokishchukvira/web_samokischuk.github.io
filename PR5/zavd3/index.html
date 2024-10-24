@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+</head>
+<body>
+
+    <div id="lastDays"></div>
+   
+    <script>
+        function getLastDayOfMonth(year, month) {
+            return new Date(year, month + 1, 0).getDate();
+        }
+
+        document.getElementById('lastDays').innerHTML = `
+            Останній день січня 2021: ${getLastDayOfMonth(2021, 0)}<br> 
+            Останній день лютого 2020: ${getLastDayOfMonth(2020, 1)}<br> 
+            Останній день лютого 2021: ${getLastDayOfMonth(2021, 1)} 
+        `;
+    </script>
+
+</body>
+</html>

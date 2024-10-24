@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 5</title>
+</head>
+<body>
+
+    <div id="formattedDate"></div>
+
+<script>
+        function formatDate(date) {
+            let dayOfMonth = date.getDate();
+            let month = date.getMonth() + 1; 
+            let year = date.getFullYear();
+            let hour = date.getHours();
+            let minutes = date.getMinutes();
+            
+            let diffMs = new Date() - date;
+            let diffSec = Math.round(diffMs / 1000);
+            let diffMin = diffSec / 60;
+            let diffHour = diffMin / 60;
+
+            year = year.toString().slice(-2); 
+            month = month < 10 ? '0' + month : month;
+            dayOfMonth = dayOfMonth < 10 ? '0' + dayOfMonth : dayOfMonth;
+            hour = hour < 10 ? '0' + hour : hour;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            if (diffSec < 1) {
+                return 'прямо зараз';
+            } else if (diffMin < 1) {
+                return `${diffSec} сек. назад`;
+            } else if (diffHour < 1) {
+                return `${Math.floor(diffMin)} хв. назад`;
+            } else {
+                return `${dayOfMonth}.${month}.${year} ${hour}:${minutes}`;
+            }
+        }
+
+        const now = new Date();
+        const pastDate = new Date(Date.now() - 120000); 
+        const futureDate = new Date(Date.now() + 5000); 
+
+        document.getElementById('formattedDate').innerHTML = `
+            Зараз: ${formatDate(now)}<br>
+            2 хвилини тому: ${formatDate(pastDate)}<br>
+            Через 5 секунд: ${formatDate(futureDate)}
+        `;
+    </script>
+
+</body>
+</html>
