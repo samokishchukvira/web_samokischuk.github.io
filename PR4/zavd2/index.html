@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+</head>
+<body>
+    <div id="time">
+        <div id="seconds"></div>
+        <div id="minutes" style="display: none;"></div>
+        <div id="hours" style="display: none;"></div>
+    </div>
+    
+    <script>
+        let secondsCount = 0;
+        let minutesCount = 0;
+        let hoursCount = 0;
+
+        const secondsElement = document.getElementById('seconds');
+        const minutesElement = document.getElementById('minutes');
+        const hoursElement = document.getElementById('hours');
+
+        function updateTime() {
+            secondsCount++;
+            secondsElement.textContent = `Секунди: ${secondsCount}`;
+
+            if (secondsCount === 60) {
+                secondsCount = 0;
+                minutesCount++;
+                minutesElement.textContent = `Хвилини: ${minutesCount}`;
+                minutesElement.style.display = 'block';
+            }
+
+            if (minutesCount === 60) {
+                minutesCount = 0;
+                hoursCount++;
+                hoursElement.textContent = `Години: ${hoursCount}`;
+                hoursElement.style.display = 'block';
+            }
+            setTimeout(updateTime, 1000); 
+        }
+        updateTime(); 
+    </script>
+</body>
+</html>

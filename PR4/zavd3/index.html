@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завдання 3</title>
+</head>
+<body>
+    <div id="output"></div>
+    
+    <script>
+        let phrase = prompt("Введіть фразу для друку:");
+
+        // Перевірка на пусте поле
+        while (!phrase) {
+            phrase = prompt("Поле не може бути пустим. Введіть фразу для друку:");
+        }
+
+        const outputElement = document.getElementById('output');
+        let index = 0;
+
+        const intervalId = setInterval(() => {
+            if (index < phrase.length) {
+                outputElement.textContent += phrase.charAt(index); 
+                index++;
+            } else {
+                clearInterval(intervalId); 
+            }
+        }, 200); 
+    </script>
+</body>
+</html>
+
