@@ -8,6 +8,7 @@ let clothes = {
         console.log(`Тип: ${this.type}, Колір: ${this.color}, Розмір: ${this.size}, Сезон: ${this.season}, Вдягнений: ${this.isWorn ? "так" : "ні"}`);
     }
 };
+
 clothes.isWorn = !clothes.isWorn; 
 clothes.clothesInfo();
 
@@ -19,10 +20,17 @@ let wardrobe = [
 ];
 
 function displayWardrobe() { 
-    wardrobe.forEach(item => { 
+    console.log("\nНошений одяг:");
+    wardrobe.filter(item => item.isWorn).forEach(item => { 
+        console.log(`Тип: ${item.type}, Колір: ${item.color}, Розмір: ${item.size}, Сезон: ${item.season}, Вдягнений: ${item.isWorn ? "так" : "ні"}`);
+    });
+
+    console.log("\nНе ношений одяг:");
+    wardrobe.filter(item => !item.isWorn).forEach(item => { 
         console.log(`Тип: ${item.type}, Колір: ${item.color}, Розмір: ${item.size}, Сезон: ${item.season}, Вдягнений: ${item.isWorn ? "так" : "ні"}`);
     });
 }
+
 displayWardrobe();
 
 function calculateAverageSize() {
@@ -32,22 +40,52 @@ function calculateAverageSize() {
     }
     return totalSize / wardrobe.length;
 }
+
 const averageSize = calculateAverageSize();
-console.log(`Середній розмір одягу: ${averageSize.toFixed(2)}`);
+console.log(`\nСередній розмір одягу: ${averageSize.toFixed(2)}`);
 
-wardrobe.sort((a, b) => a.size - b.size);
-console.log("Відсотований гардероб:");
-displayWardrobe();
+function addClothesToWardrobe() {
+    let type;
+    while (true) {
+        type = prompt("Введіть тип одягу:");
+        if (type) break; 
+        alert("Поле тип не може бути порожнім. Спробуйте ще раз.");
+    }
 
-function addClothesToWardrobe() { 
-    let type = prompt("Введіть тип одягу:"); 
-    let color = prompt("Введіть колір:"); 
-    let size = +prompt("Введіть розмір:"); 
-    let season = prompt("Введіть сезон:"); 
+    let color;
+    while (true) {
+        color = prompt("Введіть колір:");
+        if (color) break; 
+        alert("Поле колір не може бути порожнім. Спробуйте ще раз.");
+    }
+
+    let size;
+    while (true) {
+        size = prompt("Введіть розмір:");
+        size = parseInt(size, 10); 
+        if (!isNaN(size) && size > 0) break; 
+        alert("Будь ласка, введіть число.");
+    }
+
+    let season;
+    while (true) {
+        season = prompt("Введіть сезон:");
+        if (season) break; 
+        alert("Поле сезон не може бути порожнім. Спробуйте ще раз.");
+    }
+
     let isWorn = confirm("Чи ношений цей одяг?"); 
 
     wardrobe.push({ type, color, size, season, isWorn }); 
-    console.log(`Гардероб з доданим новим одяг: `);
+    console.log(`\nГардероб з доданим новим одягом:`);
     displayWardrobe(); 
-} 
+}
+
 addClothesToWardrobe();
+
+wardrobe.sort((a, b) => a.type.localeCompare(b.type)); 
+
+console.log("\nВідсортований гардероб:");
+wardrobe.forEach(item => {
+    console.log(`Тип: ${item.type}, Колір: ${item.color}, Розмір: ${item.size}, Сезон: ${item.season}, Вдягнений: ${item.isWorn ? "так" : "ні"}`);
+});
