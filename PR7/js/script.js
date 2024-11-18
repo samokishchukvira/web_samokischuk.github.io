@@ -4,21 +4,29 @@ document.getElementById('new-task').addEventListener('keypress', function(event)
     }
 });
 
-document.addEventListener("DOMContentLoaded", loadTasksFromStorage);
+document.addEventListener("DOMContentLoaded", function() {
+    loadTasksFromStorage();
+});
 
-document.getElementById('all-tasks').addEventListener('click', () => filterTasks("all"));
-document.getElementById('completed-tasks').addEventListener('click', () => filterTasks("completed"));
-document.getElementById('uncompleted-tasks').addEventListener('click', () => filterTasks("uncompleted"));
+document.getElementById('all-tasks').addEventListener('click', function() {
+    filterTasks("all");
+});
+document.getElementById('completed-tasks').addEventListener('click', function() {
+    filterTasks("completed");
+});
+document.getElementById('uncompleted-tasks').addEventListener('click', function() {
+    filterTasks("uncompleted");
+});
 
 function addTask() {
     const taskText = document.getElementById('new-task').value;
-    if (taskText.trim() === '') return;
+    if (taskText.trim() === '') return; 
 
     const taskItem = createTaskElement(taskText, false);
     document.getElementById('task-list').appendChild(taskItem);
 
     saveTasksToStorage();
-    document.getElementById('new-task').value = '';
+    document.getElementById('new-task').value = ''; 
 }
 
 function createTaskElement(text, completed) {
@@ -28,23 +36,21 @@ function createTaskElement(text, completed) {
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.classList.add('checkbox');
     checkbox.checked = completed;
-    checkbox.addEventListener('change', () => {
+    checkbox.addEventListener('change', function() {
         taskItem.classList.toggle('completed');
         saveTasksToStorage();
     });
 
     const label = document.createElement('label');
     label.textContent = text;
-
-    label.addEventListener('dblclick', () => {
+    label.addEventListener('dblclick', function() {
         const input = document.createElement('input');
         input.type = 'text';
         input.value = label.textContent;
         taskItem.replaceChild(input, label);
 
-        input.addEventListener('keypress', (event) => {
+        input.addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 label.textContent = input.value;
                 taskItem.replaceChild(label, input);
@@ -54,13 +60,13 @@ function createTaskElement(text, completed) {
     });
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = 'X';
     deleteBtn.classList.add('delete-btn');
+    deleteBtn.textContent = '×';  
     deleteBtn.addEventListener('click', () => {
         taskItem.remove();
         saveTasksToStorage();
     });
-
+    
     taskItem.appendChild(checkbox);
     taskItem.appendChild(label);
     taskItem.appendChild(deleteBtn);
@@ -70,9 +76,10 @@ function createTaskElement(text, completed) {
 
 function saveTasksToStorage() {
     const tasks = [];
-    document.querySelectorAll('.task-item').forEach(taskItem => {
+    const taskItems = document.querySelectorAll('.task-item');
+    taskItems.forEach(function(taskItem) {
         const text = taskItem.querySelector('label').textContent;
-        const completed = taskItem.classList.contains('completed') ? '1' : '0';
+        const completed = taskItem.classList.contains('completed');
         tasks.push(`${completed}:${text}`);
     });
     localStorage.setItem('tasks', tasks.join('|'));
@@ -81,15 +88,17 @@ function saveTasksToStorage() {
 function loadTasksFromStorage() {
     const tasks = localStorage.getItem('tasks');
     if (tasks) {
-        tasks.split('|').forEach(taskStr => {
+        tasks.split('|').forEach(function(taskStr) {
             const [completed, text] = taskStr.split(':');
-            const taskItem = createTaskElement(text, completed === '1');
+            const taskItem = createTaskElement(text, completed === 'true');
             document.getElementById('task-list').appendChild(taskItem);
         });
     }
 }
+
 function filterTasks(filter) {
-    document.querySelectorAll('.task-item').forEach(taskItem => {
+    const taskItems = document.querySelectorAll('.task-item');
+    taskItems.forEach(function(taskItem) {
         const isCompleted = taskItem.classList.contains('completed');
         if (filter === "completed") {
             taskItem.style.display = isCompleted ? 'flex' : 'none';
