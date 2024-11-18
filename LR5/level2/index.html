@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рівень 2</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <div id="border-radius" class="tabContent">
+        <div>Верхній лівий радіус:
+            <input type="range" id="rtl" min="0" max="100" value="20" oninput="generate()">
+            <input type="text" id="ttl" value="20" oninput="generate()">
+        </div>
+        <div>Верхній правий радіус:
+            <input type="range" id="rtr" min="0" max="100" value="30" oninput="generate()">
+            <input type="text" id="ttr" value="30" oninput="generate()">
+        </div>
+        <div>Нижній правий радіус:
+            <input type="range" id="rbr" min="0" max="100" value="40" oninput="generate()">
+            <input type="text" id="tbr" value="40" oninput="generate()">
+        </div>
+        <div>Нижній лівий радіус:
+            <input type="range" id="rbl" min="0" max="100" value="10" oninput="generate()">
+            <input type="text" id="tbl" value="10" oninput="generate()">
+        </div>
+
+        <div id="block"></div>
+
+        <div>
+            <textarea id="code" readonly></textarea>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

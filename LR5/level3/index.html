@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Рівень 3</title>
+</head>
+<body>
+    <div id="tabs">
+        <div class="tab whiteborder" onclick="showTabsContent(0)">border-radius</div>
+        <div class="tab" onclick="showTabsContent(1)">outline</div>
+        <div class="tab" onclick="showTabsContent(2)">overflow</div>
+
+        <div id="border-radius" class="tabContent hide">
+            <div>Верхній лівий радіус:
+                <input type="range" id="rtl" min="0" max="100" value="20" oninput="generate()">
+                <input type="text" id="ttl" value="20" oninput="generate()">
+            </div>
+            <div>Верхній правий радіус:
+                <input type="range" id="rtr" min="0" max="100" value="30" oninput="generate()">
+                <input type="text" id="ttr" value="30" oninput="generate()">
+            </div>
+            <div>Нижній правий радіус:
+                <input type="range" id="rbr" min="0" max="100" value="40" oninput="generate()">
+                <input type="text" id="tbr" value="40" oninput="generate()">
+            </div>
+            <div>Нижній лівий радіус:
+                <input type="range" id="rbl" min="0" max="100" value="10" oninput="generate()">
+                <input type="text" id="tbl" value="10" oninput="generate()">
+            </div>
+
+            <div id="block"></div>
+
+            <div>
+                <label>Code:</label>
+                <textarea id="code" readonly></textarea>
+            </div>
+        </div>
+
+        <div id="outline" class="tabContent hide">
+            <div>Outline Color:
+                <input type="color" id="outlineColor" value="#000000" oninput="generate()">
+            </div>
+            <div>Outline Width:
+                <input type="range" id="outlineWidth" min="0" max="20" value="2" oninput="generate()">
+                <input type="text" id="outlineWidthText" value="2" oninput="generate()">
+            </div>
+            <div>Outline Style:
+                <select id="outlineStyle" onchange="generate()">
+                    <option value="solid">solid</option>
+                    <option value="dotted">dotted</option>
+                    <option value="dashed">dashed</option>
+                </select>
+            </div>
+
+            <div id="block-outline" class="block"></div>
+
+            <div>
+                <label>Code:</label>
+                <textarea id="codeOutline" readonly></textarea>
+            </div>
+        </div>
+
+        <div id="overflow" class="tabContent hide">
+            <div>Overflow X:
+                <select id="overflowX" onchange="generate()">
+                    <option value="visible">visible</option>
+                    <option value="hidden">hidden</option>
+                    <option value="scroll">scroll</option>
+                    <option value="auto">auto</option>
+                </select>
+            </div>
+            <div>Overflow Y:
+                <select id="overflowY" onchange="generate()">
+                    <option value="visible">visible</option>
+                    <option value="hidden">hidden</option>
+                    <option value="scroll">scroll</option>
+                    <option value="auto">auto</option>
+                </select>
+            </div>
+
+            <div id="block-overflow" class="block"></div>
+
+            <div>
+                <label>Code:</label>
+                <textarea id="codeOverflow" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

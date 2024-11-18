@@ -1,0 +1,58 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+#border-radius {
+    width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+.tabContent div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.tabContent label {
+    width: 180px;
+    font-weight: bold;
+}
+.tabContent input[type="range"] {
+    margin-right: 10px;
+    width: 150px;
+}
+.tabContent input[type="text"] {
+    width: 50px;
+    text-align: center;
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#block {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    border-radius: 20px; 
+    margin: 20px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+#code {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: monospace;
+    resize: none;
+}
+.tabContent div:last-child {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
