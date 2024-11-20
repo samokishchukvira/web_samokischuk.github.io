@@ -1,0 +1,40 @@
+body {
+    background-color: lavender;
+}
+#map {
+    height: 500px;
+    width: 100%;
+    margin: 20px 0;
+}
+.controls {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+}
+#destination {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    width: 300px;
+}
+#destination:focus {
+    border-color: #8d0bad; 
+    box-shadow: 0 0 5px rgba(81, 1, 90, 0.5);
+}
+#scrollButton{
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8d0bad; 
+    width: 150px;
+    height: 40px;
+}
+#scrollButton:hover{
+    background-color: #d26feb;
+}
+h1 {
+    margin: 0 auto;
+    text-align: center;
+}
