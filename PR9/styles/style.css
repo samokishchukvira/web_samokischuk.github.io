@@ -11,51 +11,48 @@
     position: relative;
     border: 2px solid #A9A9A9;
 }
-.swipe {
-    position: absolute;
-    top: 65px;
-    width: 40px;
-    height: 40px;
-    border: 2px solid #A9A9A9; 
-    border-radius: 50%;
-    text-align: center;
-    line-height: 40px;
-    background-color: white;
+/* Контейнер для всіх товарів */
+#products-container {
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid #A9A9A9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
 }
 
-.swipe__left {
-    left: -20px;
-}
-.swipe__right {
-    right: -20px;
-}
-.first-block,
-.second-block,
-.third-block,
-.fourth-block {
+/* Окрема картка товару */
+.product-card {
     position: relative;
     display: inline-block;
-    width: calc(25% - 5px);
-    height: 100%; 
-    border-right: 2px solid #A9A9A9; 
+    width: calc(25% - 10px);
+    height: 100%;
+    border-right: 2px solid #A9A9A9;
     box-sizing: border-box;
-    text-align: center; 
+    text-align: center;
+    padding: 20px 10px;
 }
-.fourth-block:last-child {
-    border-right: none; 
+
+/* Стилі для останньої картки */
+.product-card:last-child {
+    border-right: none;
 }
-.first-block img,
-.second-block img,
-.third-block img,
-.fourth-block img {
-    width: 60%; 
-    height: 45%; 
-    position: absolute; 
-    top: 45%; 
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+
+/* Зображення товару */
+.product-card img {
+    width: 60%;
+    height: 45%;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-.header{
+
+/* Заголовок картки */
+.product-card .header {
     position: absolute;
     top: 20px;
     left: 50%;
@@ -64,77 +61,68 @@
     font-size: 20px;
     box-sizing: border-box;
     text-transform: uppercase;
-    color: 	#A9A9A9;
-    border-bottom: 	#A9A9A9 2px solid;
-    margin-left: -40%; 
+    color: #A9A9A9;
+    border-bottom: 2px solid #A9A9A9;
+    margin-left: -40%;
 }
-.location {
-    position: absolute; 
-    top: 70%; 
+
+/* Локація товару */
+.product-card .location {
+    position: absolute;
+    top: 70%;
     left: 0;
-    right: 0; 
+    right: 0;
     font-size: 18px;
     font-weight: 700;
     color: rgb(43, 141, 226);
 }
-.price {
-    position: absolute; 
-    bottom: 18%; 
+
+/* Ціна товару */
+.product-card .price {
+    position: absolute;
+    bottom: 18%;
     left: 0;
-    right: 0; 
+    right: 0;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
 }
-.old-price{
+
+/* Стара ціна */
+.product-card .old-price {
     text-decoration: line-through;
     font-size: 15px;
     font-weight: 500;
+    color: #999;
+    margin-right: 5px;
 }
-.btn {
-    position: absolute; 
-    bottom: 5%; 
+
+/* Кнопка "Додати в кошик" */
+.product-card .button {
+    position: absolute;
+    bottom: 5%;
     left: 0;
-    right: 0;  
-    background-color: red;
-    border-radius: 5px;
-	width: 150px;
-	height: 40px;
-	text-align: center;
-	color: #fff;
-	font-size: 20px;
-    margin: 0 auto;
-    line-height: 40px;
-    cursor: pointer; 
-}
-.btn a {
-    text-decoration: none;
-    color: inherit;
-}
-.btn:hover {
-	background: rgba(215, 99, 99, 0.453);
-}
-.button{
-    position: absolute; 
-    bottom: 5%; 
-    left: 0;
-    right: 0;  
+    right: 0;
     background-color: yellow;
     border-radius: 5px;
-	width: 150px;
-	height: 40px;
-	text-align: center;
-	text-decoration: none;
-	color: black;
-	font-size: 20px;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
     margin: 0 auto;
     line-height: 40px;
     cursor: pointer;
 }
-.button:hover {
-	background: rgba(225, 179, 15, 0.453);
+
+/* Ховер для кнопки */
+.product-card .button:hover {
+    background: rgba(225, 179, 15, 0.453);
 }
-.circle {
+
+/* Елементи акцій чи статусу */
+.product-card .circle, .product-card .circle1 {
     position: absolute;
     top: -50px;
     right: 10px;
@@ -142,25 +130,19 @@
     height: 80px;
     border-radius: 50%;
     border: 6px solid white;
-    background-color: red;
     color: white;
     font-size: 20px;
     text-align: center;
     line-height: 80px;
 }
-.circle1 {
-    position: absolute;
-    top: -50px;
-    right: 10px;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 6px solid white;
+
+.product-card .circle {
+    background-color: red;
+}
+
+.product-card .circle1 {
     background-color: rgb(0, 196, 39);
-    color: white;
     font-size: 15px;
-    text-align: center;
-    line-height: 80px;
 }
 .cart-icon {
     position: fixed;
