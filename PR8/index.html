@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Практична робота №8</title>
+</head>
+<body>   
+    <div class="cart-icon">
+        <img src="images/cart.png" alt="Cart Icon" onclick="openCartPage()">
+        <div id="cart-count">0</div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="title">обов'язково додайте своє замовлення</div>
+        <div class="wrap">
+            <div class="swipe swipe__left">&lt;</div>
+            <div class="swipe swipe__right">&gt;</div>
+            <div class="first-block">
+                <div class="header">Будинок</div>
+                <a href="https://www.servus.if.ua/statti/gotovi-budynky/" target="_blank">
+                <img src="images/house.jpg" alt="House"></a>
+                <div class="location">м.Київ вул. Бориса Гмирі, 8б</div>
+                <div class="price">34 761 $</div>
+                <div class="button button-active" onclick="addToCart({ id: 1, name: 'Будинок', price: 34761, quantity: 1 })">
+                    <span class="inner-center">Додати в кошик</span>
+                </div>         
+            </div>
+            <div class="second-block">
+                <div class="header">Квартира</div>
+                <a href="https://integra-dom.com/object/kvartyra-1-kimnata-harkiv-ukrayina-15/" target="_blank">
+                <img src="images/apartment.jpg" alt="Apartments"></a>
+                <div class="location">Харків, вул. Борткевича, 5 А</div>
+                <div class="price">16 479 $</div>
+                <div class="button button-active" onclick="addToCart({ id: 2, name: 'Квартира', price: 16479, quantity: 1 })">
+                    <span class="inner-center">Додати в кошик</span>
+                </div>                            
+            </div> 
+            <div class="third-block">
+                <div class="circle">Акція</div>
+                <div class="header">Будинок</div>
+                <a href="https://karpatybud.com.ua/statti/enegroefectyvni-bydunku-karkasna-technology/" target="_blank">
+                <img src="images/house2.jpg" alt="House"></a>
+                <div class="location">м. Київ, Харківське шосс</div>
+                <div class="price"><span class="old-price">86 000 $</span>&nbsp;&nbsp;80 000 $</div>
+                <div class="button button-active" onclick="addToCart({ id: 3, name: 'Будинок (Акція)', price: 80000, quantity: 1 })">
+                    <span class="inner-center">Додати в кошик</span>
+                </div>
+            </div> 
+            <div class="fourth-block">
+                <div class="circle1">Незабаром</div>
+                <div class="header">Таунхауз</div>
+                <a href="https://modernhouse.org.ua/" target="_blank">
+                <img src="images/house3.jpg" alt="Townhouse"></a>
+                <div class="location">Київська обл.,Обухівський р-н, с.Ходосівка</div>
+                <a href="https://modernhouse.org.ua/" target="_blank">
+                <div class="button">Скоро в продажі</div></a>
+            </div> 
+        </div>
+    </div>
+    <div id="cart-modal" style="display: none;">
+        <div id="cart-modal-content"></div>
+        <button onclick="document.getElementById('cart-modal').style.display='none'">Закрити</button>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
