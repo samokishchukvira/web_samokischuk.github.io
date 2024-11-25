@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     ${product.old_price ? `<span class="old-price">${product.old_price}$</span>` : ''}
                     ${product.price > 0 ? `${product.price}$` : 'Скоро в продажі'}
                 </div>
-                <div class="button" onclick="addToCart({ id: ${product.id}, name: '${product.name}', price: ${product.price}, quantity: 1 })">
-                    Додати в кошик
+                <div class="button button-active" onclick="addToCart({ id: ${product.id}, name: '${product.name}', price: ${product.price}, quantity: 1 })">
+                    <span class="inner-center">Додати в кошик</span>
                 </div>
             `;
 
@@ -116,4 +116,3 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
-\
