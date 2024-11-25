@@ -79,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const productsContainer = document.getElementById('products-container');
     const pageTitle = document.getElementById('page-title');
 
-    // Завантаження JSON-даних
     fetch('data.json')
         .then(response => {
             if (!response.ok) {
@@ -88,14 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(data => {
-            pageTitle.innerText = data.title; // Встановити заголовок сторінки
+            pageTitle.innerText = data.title; 
             renderProducts(data.products);
         })
         .catch(error => console.error(error));
 
-    // Функція для створення карток товарів
     function renderProducts(products) {
-        productsContainer.innerHTML = ''; // Очищуємо контейнер перед наповненням
+        productsContainer.innerHTML = ''; 
 
         products.forEach(product => {
             const productCard = document.createElement('div');
@@ -109,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     ${product.old_price ? `<span class="old-price">${product.old_price}$</span>` : ''}
                     ${product.price > 0 ? `${product.price}$` : 'Скоро в продажі'}
                 </div>
-                <div class="button button-active" onclick="addToCart({ id: ${product.id}, name: '${product.name}', price: ${product.price}, quantity: 1 })">
-                    <span class="inner-center">Додати в кошик</span>
+                <div class="button" onclick="addToCart({ id: ${product.id}, name: '${product.name}', price: ${product.price}, quantity: 1 })">
+                    Додати в кошик
                 </div>
             `;
 
@@ -118,3 +116,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+\
