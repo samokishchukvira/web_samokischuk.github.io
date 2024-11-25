@@ -254,18 +254,16 @@ th, td {
 }
 
 .product-card {
-    width: calc(25% - 5px);
-    height: 100%;
-    border: 2px solid #A9A9A9;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
     position: relative;
+    border: 2px solid #A9A9A9;
 }
 
 .product-card img {
-    width: 60%;
-    height: 40%;
+    width: 148px;
+    height: 225px;
 }
 
 .old-price {
