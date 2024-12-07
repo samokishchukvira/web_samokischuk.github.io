@@ -6,14 +6,14 @@
             "location": "м. Київ вул. Бориса Гмирі, 86",
             "price": "34761$",
             "button": "Додати в кошик",
-            "image": "images/house1.jpg"
+            "image": "images/house.jpg"
         },
         {
             "name": "Квартира",
             "location": "Харків, вул. Борткевича, 5 А",
             "price": "16479$",
             "button": "Додати в кошик",
-            "image": "images/apartment1.jpg"
+            "image": "images/apartment.jpg"
         },
         {
             "name": "Будинок(Акція)",
@@ -27,14 +27,14 @@
             "location": "Київська обл., Обухівський р-н, с. Ходосівка",
             "price": "Скоро в продажі",
             "button": "Додати в кошик",
-            "image": "images/townhouse1.jpg"
+            "image": "images/house3.jpg"
         },
         {
             "name": "Вілла",
             "location": "Львів, вул. Шевченка, 10",
             "price": "120000$",
             "button": "Додати в кошик",
-            "image": "images/villa1.jpg"
+            "image": "images/villa.jpg"
         }
     ]
 }
