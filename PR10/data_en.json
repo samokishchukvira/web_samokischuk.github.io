@@ -1,39 +1,39 @@
 {
-    "title": "КАТАЛОГ ТОВАРІВ",
+    "title": "CATALOG PRODUCTS",
     "products": [
         {
-            "name": "Будинок",
-            "location": "м. Київ вул. Бориса Гмирі, 86",
+            "name": "House",
+            "location": "Kyiv, Hmyri St, 86",
             "price": "34761$",
-            "button": "Додати в кошик",
+            "button": "Add to Cart",
             "image": "images/house.jpg"
         },
         {
-            "name": "Квартира",
-            "location": "Харків, вул. Борткевича, 5 А",
+            "name": "Apartment",
+            "location": "Kharkiv, Bortkevych St, 5 A",
             "price": "16479$",
-            "button": "Додати в кошик",
+            "button": "Add to Cart",
             "image": "images/apartment.jpg"
         },
         {
-            "name": "Будинок(Акція)",
-            "location": "м. Київ, Харківське шосе",
+            "name": "House(Promotion)",
+            "location": "Kyiv, Kharkiv highway",
             "price": "80000$",
-            "button": "Додати в кошик",
+            "button": "Add to Cart",
             "image": "images/house2.jpg"
         },
         {
-            "name": "Таунхауз",
-            "location": "Київська обл., Обухівський р-н, с. Ходосівка",
-            "price": "Скоро в продажі",
-            "button": "Додати в кошик",
+            "name": "Townhouse",
+            "location": "Kyiv region, Obukhiv district, Khodosivka village",
+            "price": "Soon to be sold",
+            "button": "Add to Cart",
             "image": "images/house3.jpg"
         },
         {
-            "name": "Вілла",
-            "location": "Львів, вул. Шевченка, 10",
+            "name": "Villa",
+            "location": "Lviv, Shevchenko Street, 10",
             "price": "120000$",
-            "button": "Додати в кошик",
+            "button": "Add to Cart",
             "image": "images/villa.jpg"
         }
     ]
