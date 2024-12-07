@@ -63,31 +63,6 @@
     right: 10px;
     cursor: pointer;
 }
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.modal-content button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
 .close-btn {
     position: absolute;
     top: 10px;
@@ -131,4 +106,30 @@ th, td {
     text-decoration: line-through;
     color: #999;
     margin-right: 10px;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.lang-btn {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }

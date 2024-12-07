@@ -7,6 +7,7 @@ function addToCart(item) {
         alert('Некоректне значення!');
         return;
     }
+
     const existingItem = cart.find(cartItem => cartItem.id === item.id);
 
     if (existingItem) {
@@ -70,64 +71,64 @@ function removeFromCart(index) {
 function closeModal() {
     document.getElementById('cart-modal').style.display = 'none';
 }
+
 function updateCartIcon() {
     const cartIconCount = document.getElementById('cart-count');
-    cartIconCount.innerText = cart.length; 
+    cartIconCount.innerText = cart.length;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    const productsContainer = document.getElementById('products-container');
-    const pageTitle = document.getElementById('page-title');
-    const modal = document.getElementById('language-modal');
-    const modalTitle = document.getElementById('modal-title');
+    const languageModal = document.getElementById('language-modal');
 
-    let translations = {}; 
-    let currentLanguage = localStorage.getItem('language') || null;
-
-    async function loadTranslations(lang) {
-        const response = await fetch(`locales/${lang}.json`);
-        if (!response.ok) throw new Error('Failed to load translations');
-        translations = await response.json();
-        applyTranslations();
+    const savedLanguage = localStorage.getItem('language');
+    if (!savedLanguage) {
+        languageModal.style.display = 'flex';
+    } else {
+        loadLanguage(savedLanguage);
     }
 
-    function applyTranslations() {
-        pageTitle.innerText = translations.title;
-        modalTitle.innerText = translations.modalTitle;
-
-        renderProducts();
+    function loadLanguage(language) {
+        localStorage.setItem('language', language);
+        fetch(`data_${language}.json`) 
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('page-title').innerText = data.title;
+                renderProducts(data.products);
+            })
+            .catch(error => console.error('Помилка завантаження даних:', error));
     }
 
-    function setLanguage(lang) {
-        localStorage.setItem('language', lang);
-        currentLanguage = lang;
-        loadTranslations(lang);
-        modal.style.display = 'none';
-    }
+    window.setLanguage = function (language) {
+        languageModal.style.display = 'none';
+        loadLanguage(language);
+    };
 
-    // Рендер карток товарів
-    async function renderProducts() {
-        const response = await fetch('data.json');
-        const data = await response.json();
-        productsContainer.innerHTML = '';
+    const changeLanguageButton = document.createElement('button');
+    changeLanguageButton.innerText = 'Змінити мову';
+    changeLanguageButton.onclick = () => {
+        languageModal.style.display = 'flex';
+    };
+    document.body.appendChild(changeLanguageButton);
 
-        data.products.forEach(product => {
+    function renderProducts(products) {
+        const productContainer = document.getElementById('product-container');
+        productContainer.innerHTML = '';
+
+        products.forEach((product, index) => {
             const productCard = document.createElement('div');
             productCard.className = 'product-card';
-            productCard.innerHTML = `
-                <div class="header">${product.name}</div>
-                <img src="${product.image}" alt="${product.name}">
-                <div class="location">${translations.location}: ${product.location}</div>
-                <div class="price">${translations.price}: ${product.price}$</div>
-                <div class="button">${translations.addToCart}</div>
-            `;
-            productsContainer.appendChild(productCard);
-        });
-    }
 
-    if (!currentLanguage) {
-        modal.style.display = 'block';
-    } else {
-        loadTranslations(currentLanguage);
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}" class="product-image">
+                <h3>${product.name}</h3>
+                <p>${product.location}</p>
+                <p>${product.price}</p>
+                <button onclick="addToCart({ id: ${index}, name: '${product.name}', price: ${parseFloat(product.price.replace('$', '')) || 0} })">
+                    ${product.button}
+                </button>
+            `;
+
+            productContainer.appendChild(productCard);
+        });
     }
 });
